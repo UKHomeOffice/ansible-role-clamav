@@ -3,24 +3,13 @@
 dependencies: []
 
 galaxy_info:
-  author: igor.mukhin@gmail.com
-  description: Ansible role to install clamav antivirus and optionally ClamTK
+  author: Tim Mahoney
+  description: Ansible role to install clamav on Centos 7
   license: MIT
   min_ansible_version: 1.4
   platforms:
-  - name: Ubuntu
+  - name: Centos
     versions:
-    - precise
-    # - quantal
-
-    # - raring
-    # - saucy
-
-    - trusty
-    # - utopic
-
-  - name: Debian
-    versions:
-    - all
+    - "7"
   categories:
     - system

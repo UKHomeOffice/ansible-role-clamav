@@ -1,15 +1,36 @@
 ---
 
-- include: packages.yml
+- name: Include variables suitable to our OS Family
+  include_vars: "{{ ansible_os_family }}.yml"
 
-- include: fresh.yml
-  when: clamav_fresh == true
+- name: Include tasks suitable to our OS Family
+  include: "{{ ansible_os_family }}.yml"
 
-- name: ClamAv | Start daemon
+- name: Update database
+  shell: freshclam
+  notify: Restart ClamAV
+
+- name: ClamAV Init Script
+  template:
+    src: clamav.systemd.j2
+    dest: /usr/lib/systemd/system/clamd.service
+
+- name: Freshclam Init Script
+  template:
+    src: freshclam.systemd.j2
+    dest: /usr/lib/systemd/system/clamav-freshclam.service
+
+- name: Start clamav daemon
   service:
     name: clamav-daemon
     state: started
-  when: "'clamav-daemon' in clamav_packages"
+    enabled: yes
+
+- name: Start freshclam daemon
+  service:
+    name: clamav-freshclam
+    state: started
+    enabled: yes
 
 - include: clamtk.yml
   when: clamav_clamtk_install == true
