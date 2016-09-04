@@ -6,10 +6,6 @@
 - name: Include tasks suitable to our OS Family
   include: "{{ ansible_os_family }}.yml"
 
-- name: Update database
-  shell: freshclam
-  notify: Restart ClamAV
-
 - name: ClamAV Init Script
   template:
     src: clamav.systemd.j2
