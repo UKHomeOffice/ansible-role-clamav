@@ -6,16 +6,6 @@
 - name: Include tasks suitable to our OS Family
   include: "{{ ansible_os_family }}.yml"
 
-- name: ClamAV Init Script
-  template:
-    src: clamav.systemd.j2
-    dest: /usr/lib/systemd/system/clamd.service
-
-- name: Freshclam Init Script
-  template:
-    src: freshclam.systemd.j2
-    dest: /usr/lib/systemd/system/clamav-freshclam.service
-
 - name: Start clamav daemon
   service:
     name: clamav-daemon
