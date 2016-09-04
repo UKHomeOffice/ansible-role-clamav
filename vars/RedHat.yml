@@ -13,14 +13,3 @@ clamav_packages:
 
 # Update virus signatures database each time role runs
 clamav_fresh: true
-
-# Install ClamTk GUI
-clamav_clamtk_install: true
-
-# Url for Ubuntu 13/14
-clamav_clamtk_url: "https://bitbucket.org/dave_theunsub/clamtk/downloads/clamtk_5.15-1_all.deb"
-
-# Url for Ubuntu 12.XX
-# clamav_clamtk_url: "https://bitbucket.org/dave_theunsub/clamtk-legacy/downloads/clamtk_5.15-1.legacy_all.deb"
-
-clamav_clamtk_tmp_deb: "/tmp/clamtk.deb"

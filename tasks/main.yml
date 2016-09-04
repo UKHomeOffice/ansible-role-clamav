@@ -31,6 +31,3 @@
     name: clamav-freshclam
     state: started
     enabled: yes
-
-- include: clamtk.yml
-  when: clamav_clamtk_install == true
