@@ -21,6 +21,6 @@
 - action: 
     shell: "if [[ `cat /var/log/clamav/freshclam.log|grep daily.cld | tail -n1| awk '{print $9,$10,$11}'` == 'up to date' ]]; then echo 'OK: Freshclam Current'; exit 0; else echo 'Error: Freshclam needs updating'; exit 1; fi"
   register: result
-  until: result.stdout.find("OK: Freshclam Current") != -1
+  until: result.stdout.find("OK\: Freshclam Current") != -1
   retries: 10
   delay: 20
