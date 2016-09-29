@@ -84,11 +84,11 @@ OnAccessExtraScanning: true
 OnAccessExcludeUID: 0
 
 OnAccessMountPath:
- - /
- - /home
- - /tmp
- - /var
- - /var/lib/docker
- - /var/log
- - /var/log/audit
- - /var/tmp
+ - name: /
+ - name: /home
+ - name: /tmp
+ - name: /var
+ - name: /var/lib/docker
+ - name: /var/log
+ - name: /var/log/audit
+ - name: /var/tmp

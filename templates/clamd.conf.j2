@@ -90,5 +90,5 @@ OnAccessPrevention {{ OnAccessPrevention }}
 OnAccessExtraScanning {{ OnAccessExtraScanning }}
 OnAccessExcludeUID {{ OnAccessExtraScanning }}
 {% for dir in OnAccessMountPath %}
-OnAccessMountPath {{ dir }}
+OnAccessMountPath {{ dir.name }}
 {% endfor %}
