@@ -19,6 +19,4 @@
     owner: root
     group: root
     mode: 0440
-  notify:
-   - apparmor enforce clamd
-   - Restart ClamAV
+  notify: apparmor enforce clamd

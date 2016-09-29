@@ -7,3 +7,4 @@
 
 - name: apparmor enforce clamd
   command: /usr/sbin/aa-enforce clamd
+  notify: Restart ClamAV
