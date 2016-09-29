@@ -15,6 +15,14 @@
     mode: 0440
   notify: Restart ClamAV
 
+- name: Freshclam Status
+  copy:
+    src: freshclam_status.sh
+    dest: /usr/local/bin/freshclam_status
+    owner: root
+    group: root
+    mode: 0755
+
 - name: Start clamav daemon
   service:
     name: clamav-daemon
@@ -27,7 +35,7 @@
     state: started
     enabled: yes
 
-- shell: "if [[ `cat /var/log/clamav/freshclam.log|grep daily.cld | tail -n1| awk '{print $9,$10,$11}'` == 'up to date' ]]; then echo 'OK: Freshclam Current'; exit 0; else echo 'Error: Freshclam needs updating'; exit 1; fi"
+- shell: "/usr/local/bin/freshclam_status"
   register: result
   until: result.stdout.find("OK") != -1
   retries: 10
