@@ -4,3 +4,6 @@
   service:
     name: clamav-daemon
     state: restarted
+
+- name: apparmor enforce clamd
+  command: /usr/sbin/aa-enforce clamd

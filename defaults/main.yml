@@ -1,1 +1,94 @@
 ---
+FixStaleSocket: true
+LocalSocketGroup: clamav
+LocalSocketMode: 666
+User: root
+AllowSupplementaryGroups: false
+ScanMail: false
+ScanArchive: true
+ArchiveBlockEncrypted: true
+MaxDirectoryRecursion: 25
+FollowDirectorySymlinks: true
+FollowFileSymlinks: true
+ReadTimeout: 180
+MaxThreads: 12
+MaxConnectionQueueLength: 15
+LogSyslog: true
+LogRotate: true
+LogFacility: LOG_LOCAL6
+LogClean: false
+LogVerbose: false
+OfficialDatabaseOnly: true
+SelfCheck: 3600
+Foreground: true
+Debug: false
+ScanPE: true
+MaxEmbeddedPE: 100M
+ScanOLE2: true
+ScanPDF: true
+ScanHTML: true
+MaxHTMLNormalize: 100M
+MaxHTMLNoTags: 100M
+MaxScriptNormalize: 100M
+MaxZipTypeRcg: 100M
+ScanSWF: true
+DetectBrokenExecutables: true
+ExitOnOOM: true
+LeaveTemporaryFiles: false
+AlgorithmicDetection: true
+ScanELF: true
+IdleTimeout: 30
+CrossFilesystems: true
+PhishingSignatures: true
+PhishingScanURLs: true
+PhishingAlwaysBlockSSLMismatch: true
+PhishingAlwaysBlockCloak: true
+PartitionIntersection: true
+DetectPUA: true
+ScanPartialMessages: true
+HeuristicScanPrecedence: true
+StructuredDataDetection: true
+CommandReadTimeout: 5
+SendBufTimeout: 200
+MaxQueue: 100
+ExtendedDetectionInfo: true
+OLE2BlockMacros: true
+ScanOnAccess: true
+AllowAllMatchScan: true
+ForceToDisk: false
+DisableCertCheck: false
+DisableCache: false
+MaxScanSize: 100M
+MaxFileSize: 100M
+MaxRecursion: 16
+MaxFiles: 10000
+MaxPartitions: 50
+MaxIconsPE: 100
+PCREMatchLimit: 10000
+PCRERecMatchLimit: 5000
+PCREMaxFileSize: 100M
+StatsEnabled: true
+StatsPEDisabled: false
+StatsHostID: auto
+StatsTimeout: 10
+StreamMaxLength: 200M
+LogTime: true
+LogFileUnlock: false
+LogFileMaxSize: 0
+Bytecode: true
+BytecodeSecurity: Paranoid
+BytecodeTimeout: 60000
+OnAccessMaxFileSize: 0
+OnAccessPrevention: false
+OnAccessExtraScanning: true
+OnAccessExcludeUID: 0
+
+OnAccessMountPath:
+ - /
+ - /home
+ - /tmp
+ - /var
+ - /var/lib/docker
+ - /var/log
+ - /var/log/audit
+ - /var/tmp
