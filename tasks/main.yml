@@ -15,6 +15,15 @@
     mode: 0440
   notify: Restart ClamAV
 
+- name: Replace custom freshclam.conf
+  template:
+    dest: /etc/clamav/freshclam.conf
+    src: freshclam.conf.j2
+    owner: clamav
+    group: root
+    mode: 0440
+  notify: Restart Freshclam
+
 - name: Freshclam Status
   copy:
     src: freshclam_status.sh

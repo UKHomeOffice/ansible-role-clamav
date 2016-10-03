@@ -5,6 +5,11 @@
     name: clamav-daemon
     state: restarted
 
+- name: Restart Freshclam
+  service:
+    name: clamav-freshclam
+    state: restarted
+
 - name: apparmor enforce clamd
   command: /usr/sbin/aa-enforce clamd
   notify: Restart ClamAV
