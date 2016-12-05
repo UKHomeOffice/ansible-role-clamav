@@ -1,7 +1,13 @@
 #!/bin/bash
 set -exu -o pipefail
 
-if [[ `cat /var/log/clamav/freshclam.log|grep daily.cld | tail -n5| egrep 'is up to date'` =~ 'up to date' ]]
+DATE=$(date '+%a %b %e')
+
+if [[ `cat /var/log/clamav/freshclam.log|grep daily.cld | tail -n1000` =~ 'up to date' ]]
+then
+  echo 'OK: Freshclam Current'
+  exit 0
+elif [[ `cat /var/log/clamav/freshclam.log|grep daily.cld | tail -n1000` =~ 'updated' ]]
 then
   echo 'OK: Freshclam Current'
   exit 0
