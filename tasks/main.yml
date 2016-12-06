@@ -10,7 +10,7 @@
   template:
     dest: /etc/clamav/clamd.conf
     src: clamd.conf.j2
-    owner: root
+    owner: clamav
     group: root
     mode: 0440
   notify: Restart ClamAV
