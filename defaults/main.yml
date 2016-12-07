@@ -1,6 +1,6 @@
 ---
 FixStaleSocket: "true"
-LocalSocketGroup: root
+LocalSocketGroup: clamav
 LocalSocketMode: 666
 User: root
 AllowSupplementaryGroups: "false"
@@ -88,7 +88,5 @@ OnAccessMountPath:
  - name: /tmp
  - name: /var
  - name: /var/lib/docker
- - name: /var/log
- - name: /var/log/audit
  - name: /var/tmp
 SafeBrowsing: "true"
