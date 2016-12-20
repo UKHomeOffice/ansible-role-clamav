@@ -1,4 +1,5 @@
 ---
+freshclam_enabled: true
 FixStaleSocket: "true"
 LocalSocketGroup: clamav
 LocalSocketMode: 666

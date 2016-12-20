@@ -43,6 +43,7 @@
     name: clamav-freshclam
     state: started
     enabled: yes
+  when: "{{ freshclam_enabled }}"
 
 - shell: "/usr/local/bin/freshclam_status"
   register: result
