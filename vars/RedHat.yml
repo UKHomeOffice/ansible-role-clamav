@@ -1,4 +1,6 @@
 ---
+clamd_path: /etc/clamd.d/scan.conf
+freshclam_path: /etc/clamd.d/freshclam.conf
 
 clamav_packages:
 - clamav-server

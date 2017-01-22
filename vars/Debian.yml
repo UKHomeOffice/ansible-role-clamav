@@ -1,4 +1,6 @@
 ---
+clamd_path: /etc/clamav/clamd.conf
+freshclam_path: /etc/clamav/freshclam.conf
 
 clamav_packages:
   - clamav # for manual usage
