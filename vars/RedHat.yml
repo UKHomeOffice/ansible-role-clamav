@@ -1,6 +1,10 @@
 ---
 clamd_path: /etc/clamd.d/scan.conf
 freshclam_path: /etc/clamd.d/freshclam.conf
+scan_user: clamscan
+update_user: clamupdate
+clamav_daemon: clamd
+clamav_update:
 
 clamav_packages:
 - clamav-server

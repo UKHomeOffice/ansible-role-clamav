@@ -10,7 +10,7 @@
   template:
     dest: "{{ clamd_path }}"
     src: clamd.conf.j2
-    owner: clamav
+    owner: "{{ scan_user }}"
     group: root
     mode: 0440
   notify: Restart ClamAV
@@ -19,7 +19,7 @@
   template:
     dest: "{{ freshclam_path }}"
     src: freshclam.conf.j2
-    owner: clamav
+    owner: "{{ update_user }}"
     group: root
     mode: 0440
   notify: Restart Freshclam
@@ -34,13 +34,13 @@
 
 - name: Start clamav daemon
   service:
-    name: clamav-daemon
+    name: "{{ clamav_daemon }}"
     state: started
     enabled: yes
 
 - name: Start freshclam daemon
   service:
-    name: clamav-freshclam
+    name: "{{ clamav_update }}"
     state: started
     enabled: yes
   when: "{{ freshclam_enabled }}"
