@@ -6,3 +6,19 @@
     state: present
   with_items: "{{ clamav_packages }}"
   when: "{{ clamav_packages }}"
+
+- name: clamd systemd
+  template:
+    src: clamd.systemd.j2
+    dest: /lib/systemd/system/clamd.systemd
+    owner: root
+    group: root
+  when: ansible_distribution_version >= '7'
+
+- name: freshclam systemd
+  template:
+    src: freshclam.systemd.j2
+    dest: /lib/systemd/system/freshclam.systemd
+    owner: root
+    group: root
+  when: ansible_distribution_version >= '7'
