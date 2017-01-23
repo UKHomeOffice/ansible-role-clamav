@@ -1,5 +1,5 @@
 ---
-clamd_path: /etc/clamd.d/scan.conf
+clamd_path: /etc/clamd.d/clamd.conf
 freshclam_path: /etc/freshclam.conf
 scan_user: clamscan
 update_user: clamupdate

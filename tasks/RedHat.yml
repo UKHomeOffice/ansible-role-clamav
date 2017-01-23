@@ -10,7 +10,7 @@
 - name: clamd systemd
   template:
     src: clamd.systemd.j2
-    dest: /lib/systemd/system/clamd.systemd
+    dest: /lib/systemd/system/clamd.service
     owner: root
     group: root
   when: ansible_distribution_version >= '7'
@@ -18,7 +18,7 @@
 - name: freshclam systemd
   template:
     src: freshclam.systemd.j2
-    dest: /lib/systemd/system/freshclam.systemd
+    dest: /lib/systemd/system/freshclam.service
     owner: root
     group: root
   when: ansible_distribution_version >= '7'
