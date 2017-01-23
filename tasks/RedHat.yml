@@ -15,6 +15,13 @@
     group: root
   when: ansible_distribution_version >= '7'
 
+- name: create clamav Log dir
+  file:
+    path: /var/log/clamav
+    owner: "{{ scan_user }}"
+    group: "{{ scan_user }}"
+    state: directory
+
 - name: freshclam systemd
   template:
     src: freshclam.systemd.j2

@@ -19,3 +19,4 @@ clamav_packages:
 
 # Update virus signatures database each time role runs
 clamav_fresh: true
+ClamAVLogFile: /var/log/clamav/clamav.log
