@@ -30,6 +30,15 @@
     group: root
   when: ansible_distribution_version >= '7'
 
+- name: freshclam init script
+  copy:
+    src: freshclam.init
+    dest: /etc/freshclam.conf
+    owner: root
+    group: root
+    mode: 0755
+  when: ansible_distribution_version < '7'
+
 - name: create clamav Log dir
   file:
     path: /var/lib/clamav

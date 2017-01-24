@@ -1,5 +1,5 @@
 ---
-clamd_path: /etc/clamd.d/clamd.conf
+clamd_path: /etc/clamd.conf
 freshclam_path: /etc/freshclam.conf
 scan_user: clam
 update_user: clam
@@ -16,5 +16,5 @@ clamav_packages:
 clamav_fresh: true
 ClamAVLogFile: /var/log/clamav/clamav.log
 LocalSocket: /var/run/clamd.scan/clamd.ctl
-LocalSocketGroup: clamscan
-DatabaseOwner: clamscan
+LocalSocketGroup: clam
+DatabaseOwner: clam
