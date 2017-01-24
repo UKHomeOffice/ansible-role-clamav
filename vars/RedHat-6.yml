@@ -1,0 +1,19 @@
+---
+clamd_path: /etc/clamd.d/clamd.conf
+freshclam_path: /etc/freshclam.conf
+scan_user: clamscan
+update_user: clamupdate
+clamav_daemon: clamd
+clamav_update: freshclam
+
+clamav_packages:
+- clamav-db
+- clamav
+- clamav-devel
+
+# Update virus signatures database each time role runs
+clamav_fresh: true
+ClamAVLogFile: /var/log/clamav/clamav.log
+LocalSocket: /var/run/clamd.scan/clamd.ctl
+LocalSocketGroup: clamscan
+DatabaseOwner: clamscan
