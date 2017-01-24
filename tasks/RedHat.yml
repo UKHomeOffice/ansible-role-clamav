@@ -33,7 +33,7 @@
 - name: freshclam init script
   copy:
     src: freshclam.init
-    dest: /etc/freshclam.conf
+    dest: /etc/init.d/reshclam
     owner: root
     group: root
     mode: 0755
