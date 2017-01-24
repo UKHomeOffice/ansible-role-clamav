@@ -1,8 +1,8 @@
 ---
 clamd_path: /etc/clamd.d/clamd.conf
 freshclam_path: /etc/freshclam.conf
-scan_user: clamscan
-update_user: clamupdate
+scan_user: clam
+update_user: clam
 clamav_daemon: clamd
 clamav_update: freshclam
 
@@ -10,6 +10,7 @@ clamav_packages:
 - clamav-db
 - clamav
 - clamav-devel
+- clamd
 
 # Update virus signatures database each time role runs
 clamav_fresh: true
