@@ -2,12 +2,12 @@
 
 - name: Restart ClamAV
   service:
-    name: clamav-daemon
+    name: "{{ clamav_daemon }}"
     state: restarted
 
 - name: Restart Freshclam
   service:
-    name: clamav-freshclam
+    name: "{{ clamav_update }}"
     state: restarted
 
 - name: apparmor enforce clamd
