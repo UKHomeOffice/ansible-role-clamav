@@ -48,8 +48,8 @@
     enabled: yes
   when: "{{ freshclam_enabled }}"
 
-- shell: "/usr/local/bin/freshclam_status"
-  register: result
-  until: result.stdout.find("OK") != -1
-  retries: 10
-  delay: 20
+#- shell: "/usr/local/bin/freshclam_status"
+#  register: result
+#  until: result.stdout.find("OK") != -1
+#  retries: 10
+#  delay: 20
