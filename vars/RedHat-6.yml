@@ -15,6 +15,6 @@ clamav_packages:
 # Update virus signatures database each time role runs
 clamav_fresh: true
 ClamAVLogFile: /var/log/clamav/clamav.log
-LocalSocket: /var/run/clamd.scan/clamd.ctl
+LocalSockiet: /var/run/clamav/clamd.ctl
 LocalSocketGroup: clam
 DatabaseOwner: clam
