@@ -5,6 +5,7 @@ scan_user: clam
 update_user: clam
 clamav_daemon: clamd
 clamav_update: freshclam
+Foreground: "false"
 
 clamav_packages:
 - clamav-db

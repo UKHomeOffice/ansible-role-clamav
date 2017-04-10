@@ -20,7 +20,6 @@ LogClean: "false"
 LogVerbose: "true"
 OfficialDatabaseOnly: "true"
 SelfCheck: 300
-Foreground: "true"
 Debug: "false"
 ScanPE: "true"
 MaxEmbeddedPE: 256M

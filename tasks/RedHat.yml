@@ -1,5 +1,4 @@
 ---
-
 - name: Install packages
   yum:
     name: "{{ item }}"
@@ -47,3 +46,10 @@
     state: directory
     mode: 0775
 
+- name: Adjust SELinux Bytecode
+  command: setsebool -P clamd_use_jit on
+  when: ansible_distribution_version < '7'
+
+- name: Adjust SELinux RWX mapping
+  command: setsebool -P antivirus_can_scan_system 1
+  when: ansible_distribution_version < '7'
