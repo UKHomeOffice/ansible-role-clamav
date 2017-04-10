@@ -74,7 +74,6 @@ StreamMaxLength: 256M
 LogTime: "true"
 LogFileUnlock: "false"
 LogFileMaxSize: 100M
-Bytecode: "true"
 BytecodeSecurity: Paranoid
 BytecodeTimeout: 60000
 OnAccessMaxFileSize: 256M

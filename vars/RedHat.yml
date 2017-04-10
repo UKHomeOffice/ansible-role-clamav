@@ -6,6 +6,7 @@ update_user: clamupdate
 clamav_daemon: clamd
 clamav_update: freshclam
 Foreground: "true"
+Bytecode: "true"
 
 clamav_packages:
 - clamav-server
