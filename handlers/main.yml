@@ -4,12 +4,15 @@
   service:
     name: "{{ clamav_daemon }}"
     state: restarted
+  tags: usb
 
 - name: Restart Freshclam
   service:
     name: "{{ clamav_update }}"
     state: restarted
+  tags: usb
 
 - name: apparmor enforce clamd
   command: /usr/sbin/aa-enforce clamd
   notify: Restart ClamAV
+  tags: usb
