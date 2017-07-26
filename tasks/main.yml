@@ -59,6 +59,14 @@
   when: "{{ freshclam_enabled }}"
   tags: usb
 
+- name: Set cron job for scanning / at 12:00 on a Wednesday
+  cron:
+    name: clamdscan
+    minute: "0"
+    hour: "12"
+    dow: "4"
+    job: "systemd-cat --identifier='clamav-scan' clamdscan --multiscan --fdpass /"
+
 #- shell: "/usr/local/bin/freshclam_status"
 #  register: result
 #  until: result.stdout.find("OK") != -1
