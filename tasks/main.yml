@@ -9,6 +9,15 @@
 - name: Include tasks suitable to our OS Family
   include: "{{ ansible_os_family }}.yml"
 
+- name: Set niceness of clamav-daemon within systemd to a lower priority
+  copy:
+    src: clamav-daemon.service
+    dest: /lib/systemd/system/clamav-daemon.service
+    owner: root
+    group: root
+    mode: 0644
+  notify: Restart ClamAV
+
 - name: Replace custom clamd.conf
   template:
     dest: "{{ clamd_path }}"
