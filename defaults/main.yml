@@ -82,7 +82,4 @@ OnAccessDisableDDD: "true"
 OnAccessExtraScanning: "true"
 OnAccessMountPath:
  - name: /home
- - name: /var
- - name: /var/lib/docker
- - name: /var/tmp
 SafeBrowsing: "true"
