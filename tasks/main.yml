@@ -65,7 +65,7 @@
     minute: "0"
     hour: "12"
     dow: "4"
-    job: "systemd-cat --identifier='clamav-scan' clamdscan --multiscan --fdpass /"
+    job: "/usr/bin/clamdscan --multiscan --fdpass /"
 
 #- shell: "/usr/local/bin/freshclam_status"
 #  register: result

@@ -46,7 +46,7 @@ PartitionIntersection: "true"
 DetectPUA: "true"
 ScanPartialMessages: "true"
 HeuristicScanPrecedence: "true"
-StructuredDataDetection: "true"
+StructuredDataDetection: "false"
 CommandReadTimeout: 5
 SendBufTimeout: 500
 MaxQueue: 240
@@ -83,3 +83,4 @@ OnAccessExtraScanning: "true"
 OnAccessMountPath:
  - name: /home
 SafeBrowsing: "true"
+VirusEvent: "for i in $(who | awk '{print$1}' ) ; do su -s /bin/bash -c \"DISPLAY=:0 notify-send -u critical -t 1000 'Possible Virus: $CLAM_VIRUSEVENT_FILENAME > $CLAM_VIRUSEVENT_VIRUSNAME'\" - \"$i\" ; done"
