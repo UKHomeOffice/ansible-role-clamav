@@ -46,7 +46,7 @@ PartitionIntersection: "true"
 DetectPUA: "true"
 ScanPartialMessages: "true"
 HeuristicScanPrecedence: "true"
-StructuredDataDetection: "true"
+StructuredDataDetection: "false"
 CommandReadTimeout: 5
 SendBufTimeout: 500
 MaxQueue: 240
@@ -82,7 +82,5 @@ OnAccessDisableDDD: "true"
 OnAccessExtraScanning: "true"
 OnAccessMountPath:
  - name: /home
- - name: /var
- - name: /var/lib/docker
- - name: /var/tmp
 SafeBrowsing: "true"
+VirusEvent: "/opt/clamav-utils/clamd-response"

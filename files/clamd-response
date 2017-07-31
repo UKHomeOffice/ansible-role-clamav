@@ -1,0 +1,30 @@
+#!/bin/bash
+
+FILENAME=$( basename $CLAM_VIRUSEVENT_FILENAME )
+QUARANTINE_DIR="/opt/clamav-utils/QUARANTINE/"
+POP_UP_MESSAGE="Quarantined: '${CLAM_VIRUSEVENT_FILENAME} => ${CLAM_VIRUSEVENT_VIRUSNAME}'"
+
+quarantine() {
+  chmod 0400 ${CLAM_VIRUSEVENT_FILENAME}
+  
+  mv ${CLAM_VIRUSEVENT_FILENAME} ${QUARANTINE_DIR}${FILENAME}
+  
+  cd ${QUARANTINE_DIR}
+
+  tar -cvzf ${FILENAME}.gzip ${FILENAME} && \
+  	rm ${QUARANTINE_DIR}${FILENAME}
+
+  chmod 0400 ${QUARANTINE_DIR}${FILENAME}.gzip
+  
+  for i in $(who | awk '{print$1}' ) ; do
+    su -s /bin/bash -c \
+      "DISPLAY=:0 notify-send -u critical -t 1000 ${POP_UP_MESSAGE}" - "$i"
+  done
+}
+
+
+if [ -f ${CLAM_VIRUSEVENT_FILENAME} ]; then
+  quarantine
+fi
+
+exit 0
