@@ -9,6 +9,24 @@
 - name: Include tasks suitable to our OS Family
   include: "{{ ansible_os_family }}.yml"
 
+- name: Create QUARANTINE directory for ClamAV
+  file:
+    path: /opt/clamav-utils/QUARANTINE/
+    state: directory
+    owner: root
+    group: root
+    state: 0700
+    recurse: yes
+
+- name: Add clamd VirusEvent script
+  copy:
+    src: clamd-response
+    dest: /opt/clamav-utils/clamd-response
+    owner: root
+    group: root
+    mode: 0700
+  notify: Restart ClamAV
+
 - name: Set niceness of clamav-daemon within systemd to a lower priority
   copy:
     src: clamav-daemon.service
@@ -58,6 +76,13 @@
     enabled: yes
   when: "{{ freshclam_enabled }}"
   tags: usb
+
+- name: Set cron job for emptying QUARANTINE directory of files not used within 3 days
+  cron:
+    name: clamdscan
+    minute: "0"
+    hour: "16"
+    job: "find /opt/clamav-utils/QUARANTINE/ -mindepth 1 -mtime +2 -delete"
 
 - name: Set cron job for scanning / at 12:00 on a Wednesday
   cron:
