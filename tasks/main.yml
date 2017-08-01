@@ -15,7 +15,7 @@
     state: directory
     owner: root
     group: root
-    state: 0700
+    mode: 0700
     recurse: yes
 
 - name: Add clamd VirusEvent script
